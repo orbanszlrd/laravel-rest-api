@@ -19,14 +19,11 @@ use App\Http\Controllers\WebcamController;
 */
 
 Route::post('/register', [UserController::class, 'register']);
-
 Route::post('/login', [UserController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [UserController::class, 'logout']);
 Route::middleware('auth:sanctum')->get('/users/search/{name}', [UserController::class, 'search']);
 Route::middleware('auth:sanctum')->resource('/users', UserController::class);
-
 Route::middleware('auth:sanctum')->resource('/photos', PhotoController::class);
-
 Route::get('/webcams', [WebcamController::class, 'index']);
 Route::get('/webcams/{id}', [WebcamController::class, 'show']);
 Route::get('/webcams/search/{name}', [WebcamController::class, 'search']);
